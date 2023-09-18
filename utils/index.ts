@@ -1,4 +1,4 @@
-import level from "./level";
-import { timestamp, formattedTimestamp } from "./timestamp";
+import format from "./format";
+import { getTimestamp } from "./timestamp";
 
-export { level, timestamp, formattedTimestamp };
+export { format, getTimestamp };
