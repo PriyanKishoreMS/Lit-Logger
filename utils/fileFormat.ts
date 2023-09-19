@@ -9,6 +9,8 @@ const formatMsg = (indent: boolean, ...msg: any) => {
 		min: !indent,
 		printFunctionName: false,
 		printBasicPrototype: true,
+		maxDepth: 500,
+		maxWidth: 500,
 	});
 	// return util.format(...msg);
 	// return JSON.stringify(msg);

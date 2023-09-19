@@ -3,9 +3,8 @@ const log = new Logger({
 	formatTime: "24h",
 });
 const flog = new FileLogger({
-	formatTime: "dateTime",
 	indent: false,
-	fileName: "log",
+	dest: "./logs",
 	fileType: "json",
 });
 const details = { blah: true };
@@ -15,9 +14,9 @@ const etc = false;
 
 flog.debug("This is a debug message");
 flog.info("Interesting");
-setTimeout(() => {
-	flog.warn("Hmmm...", 123, false, { details });
-}, 2000);
+// setTimeout(() => {
+// 	flog.warn("Hmmm...", 123, false, { details });
+// }, 2000);
 flog.error(
 	"Not good.",
 	"Not good at all.",
@@ -31,3 +30,19 @@ flog.info("file logger");
 
 // const loadJson = fs.readFileSync("log.json", "utf-8");
 // log.info(JSON.parse(loadJson));
+
+log.debug("This is a debug message");
+log.info("Interesting");
+// setTimeout(() => {
+// 	log.warn("Hmmm...", 123, false, { details });
+// }, 2000);
+log.error(
+	"Not good.",
+	"Not good at all.",
+	{ err: error },
+	{ context },
+	{ etc }
+);
+log.info("This\nwill\nspan\nmultiple\nlines.");
+
+log.info("file logger");

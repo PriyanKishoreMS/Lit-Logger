@@ -7,6 +7,7 @@ type fileLogOptions = {
 	indent: boolean;
 	fileType: "txt" | "json";
 	fileName: string;
+	dest: string;
 };
 
 type logLevels = "info" | "warn" | "error" | "debug";

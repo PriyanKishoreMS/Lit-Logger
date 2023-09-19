@@ -1,14 +1,18 @@
 const fs = require("fs");
 
 const writeFile = async (
+	data: string | string[],
 	fileType: "txt" | "json",
 	fileName: string,
-	data: string | string[]
+	dest: string
 ) => {
+	if (!fs.existsSync(dest)) {
+		fs.mkdirSync(dest);
+	}
 	if (fileType == "txt") {
 		await fs.promises.appendFile(
-			`${fileName}.${fileType}`,
-			JSON.stringify(data) + "\n"
+			`${dest}/${fileName}.${fileType}`,
+			data + "\n"
 		);
 	} else if (fileType == "json") {
 		const key = data[0];
@@ -16,16 +20,16 @@ const writeFile = async (
 		const initialData = {};
 		try {
 			if (
-				!fs.existsSync(`${fileName}.${fileType}`) ||
-				fs.readFileSync(`${fileName}.${fileType}`, "utf-8") == ""
+				!fs.existsSync(`${dest}/${fileName}.${fileType}`) ||
+				fs.readFileSync(`${dest}/${fileName}.${fileType}`, "utf-8") == ""
 			) {
 				fs.writeFileSync(
-					`${fileName}.${fileType}`,
+					`${dest}/${fileName}.${fileType}`,
 					JSON.stringify(initialData, null, 2),
 					"utf-8"
 				);
 			}
-			const file = fs.readFileSync(`${fileName}.${fileType}`, "utf-8");
+			const file = fs.readFileSync(`${dest}/${fileName}.${fileType}`, "utf-8");
 			const obj = JSON.parse(file);
 			if (obj.hasOwnProperty(key)) {
 				if (!Array.isArray(obj[key])) {
@@ -37,7 +41,7 @@ const writeFile = async (
 			}
 
 			const json = JSON.stringify(obj, null, 2);
-			fs.writeFileSync(`${fileName}.${fileType}`, json);
+			fs.writeFileSync(`${dest}/${fileName}.${fileType}`, json);
 		} catch (err) {
 			console.error(err);
 		}
