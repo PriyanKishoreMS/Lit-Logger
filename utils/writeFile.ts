@@ -1,4 +1,5 @@
 const fs = require("fs");
+import { fileSize } from "../utils";
 
 const writeFile = async (
 	data: string | string[],
@@ -10,6 +11,10 @@ const writeFile = async (
 		fs.mkdirSync(dest);
 	}
 	if (fileType == "txt") {
+		// log Rotation to be implemented with better file size checking
+		// if ((await fileSize(`${dest}/${fileName}.${fileType}`)) > 1000) {
+		// 	fileName = `${fileName}-${Date.now()}`;
+		// }
 		await fs.promises.appendFile(
 			`${dest}/${fileName}.${fileType}`,
 			data + "\n"
@@ -29,6 +34,9 @@ const writeFile = async (
 					"utf-8"
 				);
 			}
+			// if ((await fileSize(`${dest}/${fileName}.${fileType}`)) > 1000) {
+			// 	fileName = `${fileName}-${Date.now()}`;
+			// }
 			const file = fs.readFileSync(`${dest}/${fileName}.${fileType}`, "utf-8");
 			const obj = JSON.parse(file);
 			if (obj.hasOwnProperty(key)) {
