@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import nicelyFormat from "nicely-format";
+// import nicelyFormat from "nicely-format";
 
 const theme = {
 	tag: "cyan",
@@ -29,28 +29,25 @@ const levels = {
 	default: "white",
 };
 
-const formatMsg = (...msg: any) => {
-	const formattedMessages = msg.map((...msg: any) => {
-		if (typeof msg === "string") {
-			return msg;
-		}
+// const formatMsg = (...msg: any) => {
+// 	return nicelyFormat(msg, {
+// 		highlight: true,
+// 		min: true,
+// 		theme: theme,
+// 	});
+// };
 
-		return nicelyFormat(msg, {
-			highlight: true,
-			min: true,
-			theme: theme,
-		});
-	});
-	return formattedMessages;
-};
-
-const format = (level: keyof typeof levels, time: string, ...msg: any[]) => {
+const format = (
+	level: keyof typeof levels,
+	time: string
+	// ...msg: any[]
+) => {
 	const color = levels[level] || "white";
 	const levelLog = (chalk as any)[color].inverse.bold(
 		`[${level}]`.toUpperCase()
 	);
-	const timeLog = (chalk as any)["gray"](time);
-	return `${timeLog} ${levelLog} ${formatMsg(...msg)}`;
+	const timeLog = (chalk as any)[color](time);
+	return `${levelLog} ${timeLog}`;
 };
 
 export default format;

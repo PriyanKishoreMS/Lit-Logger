@@ -1,26 +1,18 @@
 import { format, getTimestamp } from "../utils";
-
-type logOptions = {
-	formatTime: "isoTime" | "dateTime" | "12h" | "24h";
-};
+import { logOptions, logLevels } from "../types/LoggerTypes";
 
 const defaultOptions: logOptions = {
 	formatTime: "dateTime",
 };
 
-type logLevels = "info" | "warn" | "error" | "debug";
-
-class logger {
+class Logger {
 	options: logOptions;
 	constructor(options: Partial<logOptions> = {}) {
 		this.options = { ...defaultOptions, ...options };
 	}
 	private logWithLevel(logLevel: logLevels, ...message: any[]): void {
-		const timestampFunction = this.getTimestampFunction();
+		const timestampFunction = getTimestamp(this.options.formatTime);
 		console.log(format(logLevel, timestampFunction()), ...message, "\n");
-	}
-	private getTimestampFunction(): () => string {
-		return getTimestamp(this.options.formatTime);
 	}
 	info(...args: any[]) {
 		this.logWithLevel("info", ...args);
@@ -36,4 +28,4 @@ class logger {
 	}
 }
 
-export default logger;
+export default Logger;

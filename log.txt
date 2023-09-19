@@ -1,0 +1,10 @@
+[DEBUG] 9/19/2023, 10:23:43 PM [["This is a debug message"]]
+[INFO] 9/19/2023, 10:23:43 PM [["Interesting"]]
+[ERROR] 9/19/2023, 10:23:43 PM [["Not good.", "Not good at all.", {"err": [Error: This error is part of the example]}, {"context": {"userid": 1}}, {"etc": false}]]
+[INFO] 9/19/2023, 10:23:43 PM [["This
+will
+span
+multiple
+lines."]]
+[INFO] 9/19/2023, 10:23:43 PM [["file logger"]]
+[WARN] 9/19/2023, 10:23:45 PM [["Hmmm...", 123, false, {"details": {"blah": true}}]]

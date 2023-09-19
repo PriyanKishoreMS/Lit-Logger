@@ -1,23 +1,28 @@
-import { logger } from "./src";
-const log = new logger({
+import { Logger, FileLogger } from "./src";
+const log = new Logger({
 	formatTime: "24h",
 });
-// const val = { object: {} };
+const flog = new FileLogger({
+	formatTime: "dateTime",
+	indent: false,
+});
 const details = { blah: true };
 const error = new Error("This error is part of the example");
 const context = { userid: 1 };
 const etc = false;
 
-log.debug("set DEBUG=Feature or DEBUG=* to see this one");
-log.info("Interesting");
+flog.debug("This is a debug message");
+flog.info("Interesting");
 setTimeout(() => {
-	log.warn("Hmmm...", 123, false, { details });
+	flog.warn("Hmmm...", 123, false, { details });
 }, 2000);
-log.error(
+flog.error(
 	"Not good.",
 	"Not good at all.",
 	{ err: error },
 	{ context },
 	{ etc }
 );
-log.info("This\nwill\nspan\nmultiple\nlines.");
+flog.info("This\nwill\nspan\nmultiple\nlines.");
+
+flog.info("file logger");
