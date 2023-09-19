@@ -6,7 +6,7 @@ const defaultOptions: fileLogOptions = {
 	indent: false,
 	fileType: "txt",
 	fileName: "log",
-	dest: "./",
+	dest: "./logs",
 };
 
 class FileLogger {
