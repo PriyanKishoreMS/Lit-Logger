@@ -5,6 +5,8 @@ const log = new Logger({
 const flog = new FileLogger({
 	formatTime: "dateTime",
 	indent: false,
+	fileName: "log",
+	fileType: "json",
 });
 const details = { blah: true };
 const error = new Error("This error is part of the example");
@@ -26,3 +28,6 @@ flog.error(
 flog.info("This\nwill\nspan\nmultiple\nlines.");
 
 flog.info("file logger");
+
+// const loadJson = fs.readFileSync("log.json", "utf-8");
+// log.info(JSON.parse(loadJson));

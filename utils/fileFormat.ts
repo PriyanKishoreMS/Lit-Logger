@@ -18,12 +18,17 @@ const fileFormat = (
 	level: levels,
 	time: string,
 	indent: boolean,
+	fileType: "txt" | "json",
 	...msg: any[]
 ) => {
 	const levelLog = `[${level}]`.toUpperCase();
-
-	const timeLog = time;
-	return `${levelLog} ${timeLog} ${formatMsg(indent, msg)}`;
+	if (fileType === "txt") {
+		return `${levelLog} ${time} ${formatMsg(indent, msg)}`;
+	} else if (fileType === "json") {
+		const key = `${levelLog} ${time}`;
+		const value = formatMsg(indent, msg);
+		return [key, value];
+	}
 };
 
 export default fileFormat;

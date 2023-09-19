@@ -1,10 +1,11 @@
-import { fileFormat, getTimestamp } from "../utils";
+import { fileFormat, getTimestamp, writeFile } from "../utils";
 import { fileLogOptions, logLevels } from "../types/LoggerTypes";
-import fs from "fs";
 
 const defaultOptions: fileLogOptions = {
 	formatTime: "dateTime",
 	indent: false,
+	fileType: "txt",
+	fileName: "log",
 };
 
 class FileLogger {
@@ -21,9 +22,11 @@ class FileLogger {
 			logLevel,
 			timestampFunction(),
 			this.options.indent,
+			this.options.fileType,
 			...message
 		);
-		await fs.promises.appendFile("log.txt", out + "\n");
+		if (out === undefined) return;
+		writeFile(this.options.fileType, this.options.fileName, out);
 	}
 	info(...args: any[]) {
 		this.logWithLevel("info", ...args);
