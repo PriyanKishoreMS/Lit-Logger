@@ -3,6 +3,9 @@
 <img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/ec559a9f6bfd399b82bb44393651661b08aaf7ba/icons/folder-markdown-open.svg" width="100" />
 <br>Logger
 </h1>
+<h3>
+A flexible logging and file management system for javascript applications.
+</h3>
 <h3>◦ Developed with the software and tools listed below.</h3>
 
 <p align="center">
@@ -29,8 +32,7 @@
 
 ## 📍 Overview
 
-This flexible logging and file management system offers features such as logging with different severity levels, automated log file management including rotation, and custom configuration options. Developers can easily integrate and customize this system for efficient log handling in their applications.
-
+This flexible logging and file management system offers features such as logging with different severity levels, automated log file management including rotation, and custom configuration options. Developers can easily integrate and customize this system for efficient log handling in their applications. Soon to be available on npm.
 
 ## ⚙️ Features
 
