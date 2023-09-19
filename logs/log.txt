@@ -1,0 +1,59 @@
+[DEBUG] 9/20/2023, 1:35:09 AM Array [
+  Array [
+    "This is a debug message",
+  ],
+]
+[INFO] 9/20/2023, 1:35:09 AM Array [
+  Array [
+    "Interesting",
+  ],
+]
+[ERROR] 9/20/2023, 1:35:09 AM Array [
+  Array [
+    "Not good.",
+    "Not good at all.",
+    Object {
+      "err": [Error: This error is part of the example],
+    },
+    Object {
+      "context": Object {
+        "userid": 1,
+      },
+    },
+    Object {
+      "etc": false,
+    },
+  ],
+]
+[INFO] 9/20/2023, 1:35:09 AM Array [
+  Array [
+    "This
+will
+span
+multiple
+lines.",
+  ],
+]
+[INFO] 9/20/2023, 1:35:09 AM Array [
+  Array [
+    "file logger",
+  ],
+]
+[DEBUG] 9/20/2023, 1:35:19 AM [["This is a debug message"]]
+[INFO] 9/20/2023, 1:35:19 AM [["Interesting"]]
+[ERROR] 9/20/2023, 1:35:19 AM [["Not good.", "Not good at all.", {"err": [Error: This error is part of the example]}, {"context": {"userid": 1}}, {"etc": false}]]
+[INFO] 9/20/2023, 1:35:19 AM [["This
+will
+span
+multiple
+lines."]]
+[INFO] 9/20/2023, 1:35:19 AM [["file logger"]]
+[DEBUG] 9/20/2023, 1:36:23 AM [["This is a debug message"]]
+[INFO] 9/20/2023, 1:36:23 AM [["Interesting"]]
+[ERROR] 9/20/2023, 1:36:23 AM [["Not good.", "Not good at all.", {"err": [Error: This error is part of the example]}, {"context": {"userid": 1}}, {"etc": false}]]
+[INFO] 9/20/2023, 1:36:23 AM [["This
+will
+span
+multiple
+lines."]]
+[INFO] 9/20/2023, 1:36:23 AM [["file logger"]]
