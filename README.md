@@ -25,6 +25,7 @@ A flexible logging and file management system for javascript applications.
 
 - [📒 Table of Contents](#-table-of-contents)
 - [📍 Overview](#-overview)
+- [📄 Usage](#-usage)
 - [⚙️ Features](#️-features)
 - [🤝 Contributing](#-contributing)
 - [👏 Acknowledgments](#-acknowledgments)
@@ -34,6 +35,25 @@ A flexible logging and file management system for javascript applications.
 
 This flexible logging and file management system offers features such as logging with different severity levels, automated log file management including rotation, and custom configuration options. Developers can easily integrate and customize this system for efficient log handling in their applications. Soon to be available on npm.
 
+## 📄 Usage
+   
+   ```js
+   const { Logger, FileLogger } = require('logger');
+   const log = new Logger({
+      formatTime: '24h',
+   });
+
+   const flog = new FileLogger({
+	formatTime: "dateTime" ,
+	indent: true,
+	fileType: "json",
+	fileName: "log",
+	dest: "./logs"
+   });
+
+   log.info({ blah: true })
+   flog.warn("This is interesting")
+   ```
 ## ⚙️ Features
 
 1. **Logging** : Provides logging functionality with support for various log levels, including debug, info, warn, error, and custom levels.
