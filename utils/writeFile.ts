@@ -1,4 +1,4 @@
-const fs = require("fs");
+import fs from "fs";
 import { fileSize } from "../utils";
 
 const writeFile = async (

@@ -1,6 +1,11 @@
 {
-  "name": "logger",
-  "module": "index.ts",
+  "name": "lit-logger",
+  "module": "dist/index.ts",
+  "main": "dist/index.js",
+  "version": "1.0.2",
+  "author": "Priyan Kishore M S",
+  "description": "A flexible logging and file management system for javascript applications.",
+  "repository": "github.com/priyankishorems/lit-logger",
   "devDependencies": {
     "bun-types": "latest"
   },
@@ -8,11 +13,21 @@
     "typescript": "^5.0.0"
   },
   "scripts": {
+    "build": "bun build index.ts --outdir ./dist --target node",
     "start": "bun run index.ts"
   },
   "type": "module",
   "dependencies": {
     "chalk": "^5.3.0",
     "pretty-format": "^29.7.0"
-  }
+  },
+  "keywords": [
+    "logger",
+    "lit-logger",
+    "lit",
+    "typescript",
+    "ts",
+    "bun"
+  ],
+  "license": "MIT"
 }
