@@ -20,40 +20,66 @@ A flexible logging and file management system for javascript applications.
 <img src="https://img.shields.io/github/last-commit/PriyanKishoreMS/Logger?style&color=5D6D7E" alt="GitHub last commit" />
 </div>
 
-
 ## 📒 Table of Contents
 
 - [📒 Table of Contents](#-table-of-contents)
 - [📍 Overview](#-overview)
 - [📄 Usage](#-usage)
+    - [Log Levels](#log-levels)
 - [⚙️ Features](#️-features)
 - [🤝 Contributing](#-contributing)
 - [👏 Acknowledgments](#-acknowledgments)
-
 
 ## 📍 Overview
 
 This flexible logging and file management system offers features such as logging with different severity levels, automated log file management including rotation, and custom configuration options. Developers can easily integrate and customize this system for efficient log handling in their applications. Soon to be available on npm.
 
 ## 📄 Usage
-   
-   ```js
-   const { Logger, FileLogger } = require('logger');
+
+```js
+   import {Logger, FileLogger} from "lit-logger"
    const log = new Logger({
       formatTime: '24h',
    });
 
    const flog = new FileLogger({
-	formatTime: "dateTime" ,
-	indent: true,
-	fileType: "json",
-	fileName: "log",
-	dest: "./logs"
+ 	formatTime: "dateTime" ,
+ 	indent: true,
+ 	fileType: "json",
+ 	fileName: "log",
+ 	dest: "./logs"
    });
 
    log.info({ blah: true })
    flog.warn("This is interesting")
-   ```
+```
+
+| Option         | Logger (default) | FileLogger(default) | Options                                             | Description                               |
+| -------------- | ---------------- | ------------------- | --------------------------------------------------- | ----------------------------------------- |
+| `formatTime` | `'dateTime'`   | `'dateTime'`      | `'isoTime'`, `'dateTime'`, `'12h'`, `'24h'` | Time format for log timestamps.           |
+| `indent`     | NA               | `false`           | boolean                                             | Whether to indent log messages.           |
+| `fileType`   | NA               | `'txt'`           | `'json'`, `'txt'`                               | File type for log files.                  |
+| `fileName`   | NA               | `'log'`           | Any string                                          | Name of the log file (without extension). |
+| `dest`       | NA               | `'./logs'`        | Any valid file path                                 | Destination directory for log files.      |
+
+**Note:** When setting the `formatTime` option, you can choose from the following values:
+
+- `'isoTime'`: ISO 8601 format (e.g., `"2023-09-20T15:30:45.123Z"`).
+- `'dateTime'`: Date and time format (e.g., `"9/20/2023, 3:30:45 PM"`).
+- `'12h'`: 12-hour time format with AM/PM (e.g., `"3:30:45.123 PM"`).
+- `'24h'`: 24-hour time format (e.g., `"15:30:45.123"`).
+
+Please make sure to use these options accordingly when configuring your `Logger` and `FileLogger` instances.
+
+#### Log Levels
+
+- **info**: Informational messages.
+- **warn**: Warning messages.
+- **error**: Error messages.
+- **debug**: Debugging messages.
+
+These log levels are available for both `Logger` and `FileLogger` as methods.
+
 ## ⚙️ Features
 
 1. **Logging** : Provides logging functionality with support for various log levels, including debug, info, warn, error, and custom levels.
@@ -68,7 +94,6 @@ This flexible logging and file management system offers features such as logging
 10. **Log Output Destinations** : Allows developers to configure log output destinations, including the console and log files.
 11. **Dynamic Log Levels** : Provides flexibility to dynamically adjust log levels during runtime.
 12. **Efficient Log Storage** : Efficiently stores log data with customizable formatting options.
-
 
 ## 🤝 Contributing
 
@@ -101,4 +126,3 @@ git push origin new-feature-branch
 ## 👏 Acknowledgments
 
 > - `ℹ️  ChatGPT for making this Readme 🥲`
-
